@@ -12,6 +12,7 @@ struct ContentView: View {
     let resourceDescriptor: Resources.Descriptor
     
     @State var resourceResult: Result<Resources, Error>
+    @State var downloadDataTask: URLSessionDataTask?
     
     var resources: Resources? {
         switch resourceResult {
@@ -31,26 +32,33 @@ struct ContentView: View {
     }
     
     var body: some View {
-        if let errorString = errorString {
-            Text(errorString)
-                .padding(16)
-                .background(Color.red)
-                .cornerRadius(8)
-                .foregroundColor(.white)
-        }
-        
         if let resources = resources {
             List(resources.associatedAssets) { associatedAsset in
                 AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
             }
+        } else if let downloadDataTask = downloadDataTask {
+            ProgressView(downloadDataTask.progress)
+                .padding([.leading, .trailing], 24)
         } else {
+            if let errorString = errorString {
+                Text(errorString)
+                    .font(.callout)
+                    .padding(16)
+                    .background(Color.red)
+                    .cornerRadius(8)
+                    .foregroundColor(.white)
+                    .padding(24)
+            }
+            
             Button("Download Resources") {
-                resourceDescriptor.downloadResources { result in
+                downloadDataTask = resourceDescriptor.downloadResources { result in
                     DispatchQueue.main.async {
                         resourceResult = result
+                        downloadDataTask = nil
                     }
                 }
             }
+            .font(.headline)
         }
     }
 }

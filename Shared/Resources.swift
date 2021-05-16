@@ -20,7 +20,8 @@ struct Resources {
             return url
         }
         
-        func downloadResources(completionHandler: @escaping (Result<Resources, Error>) -> Void) {
+        @discardableResult
+        func downloadResources(completionHandler: @escaping (Result<Resources, Error>) -> Void) -> URLSessionDataTask {
             let task = URLSession.shared.dataTask(with: remoteResourceLocation) { [self] data, _, error in
                 if let error = error {
                     completionHandler(.failure(error))
@@ -36,6 +37,7 @@ struct Resources {
                 }
             }
             task.resume()
+            return task
         }
         
         var resourceResult: Result<Resources, Error> {
