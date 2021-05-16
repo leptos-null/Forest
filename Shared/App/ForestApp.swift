@@ -22,6 +22,8 @@ struct ForestApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(resourceDescriptor: resourceDescriptor, resourceResult: resourceDescriptor.resourceResult)
+                // set some minimum dimensions to avoid very small sizes, and odd re-sizing during the download flow
+                .frame(minWidth: 360, minHeight: 240)
         }
     }
 }

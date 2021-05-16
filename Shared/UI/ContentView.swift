@@ -59,6 +59,7 @@ struct ContentView: View {
                 }
             }
             .font(.headline)
+            .padding(24)
         }
     }
 }
