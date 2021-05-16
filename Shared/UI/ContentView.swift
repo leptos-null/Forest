@@ -1,0 +1,65 @@
+//
+//  ContentView.swift
+//  Forest
+//
+//  Created by Leptos on 5/15/21.
+//  Copyright © 2021 Leptos. All rights reserved.
+//
+
+import SwiftUI
+
+struct ContentView: View {
+    let resourceDescriptor: Resources.Descriptor
+    
+    @State var resourceResult: Result<Resources, Error>
+    
+    var resources: Resources? {
+        switch resourceResult {
+        case .success(let resources):
+            return resources
+        default:
+            return nil
+        }
+    }
+    var errorString: String? {
+        switch resourceResult {
+        case .failure(let error):
+            return error.localizedDescription
+        default:
+            return nil
+        }
+    }
+    
+    var body: some View {
+        if let errorString = errorString {
+            Text(errorString)
+                .padding(16)
+                .background(Color.red)
+                .cornerRadius(8)
+                .foregroundColor(.white)
+        }
+        
+        if let resources = resources {
+            List(resources.associatedAssets) { associatedAsset in
+                AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
+            }
+        } else {
+            Button("Download Resources") {
+                resourceDescriptor.downloadResources { result in
+                    DispatchQueue.main.async {
+                        resourceResult = result
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct ContentViewPreviews: PreviewProvider {
+    static var previews: some View {
+        ContentView(
+            resourceDescriptor: Resources.Descriptor(directory: URL(fileURLWithPath: "/dev/null")),
+            resourceResult: .failure(POSIXError(.EBADF))
+        )
+    }
+}
