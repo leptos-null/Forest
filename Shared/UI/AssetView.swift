@@ -10,12 +10,7 @@ import SwiftUI
 
 struct AssetView: View {
     let asset: Entries.Asset
-    let decodeBundle: Bundle
-    
-    var pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest] {
-        asset.decodePointsOfInterest(from: decodeBundle)
-            .sorted { $0.timeInterval < $1.timeInterval }
-    }
+    let pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest]
     
     func stringFrom(seconds: TimeInterval) -> String {
         let secondsPerMinute: TimeInterval = 60
@@ -26,40 +21,30 @@ struct AssetView: View {
     }
     
     var body: some View {
-        GroupBox {
-            DisclosureGroup(pointsOfInterest.first?.value ?? "No points of interest") {
-                VStack {
-                    if pointsOfInterest.count > 1 {
-                        DisclosureGroup("Points of Interest") {
-                            VStack {
-                                ForEach(pointsOfInterest[1...]) { pointOfInterest in
-                                    HStack {
-                                        Text("\(pointOfInterest.value) (\(stringFrom(seconds: pointOfInterest.timeInterval)))")
-                                        Spacer()
-                                    }
-                                }
-                            }
-                            .font(.body)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                        }
-                    }
-                    DisclosureGroup("URLs") {
-                        LazyVStack {
-                            ForEach(asset.links) { link in
-                                AssetPlayerView(link: link, pointsOfInterest: pointsOfInterest)
-                            }
-                        }
-                        .font(.body)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
+        List {
+            Section(header: Text("Points of Interest").foregroundColor(.gray)) {
+                ForEach(pointsOfInterest) { pointOfInterest in
+                    HStack {
+                        Text(pointOfInterest.value)
+                        Spacer()
+                        Text(stringFrom(seconds: pointOfInterest.timeInterval))
+                            .font(.footnote)
                     }
                 }
-                .font(.title3)
+                .font(.body)
                 .padding(.horizontal, 16)
             }
-            .font(.title2)
-            .padding(.horizontal, 16)
+            .font(.headline)
+            Section(header: Text("URLs").foregroundColor(.gray)) {
+                ForEach(asset.links) { link in
+                    AssetPlayerView(link: link, pointsOfInterest: pointsOfInterest)
+                }
+                .font(.body)
+                .padding(.horizontal, 16)
+            }
+            .font(.headline)
         }
+        .navigationTitle(asset.accessibilityLabel)
+        .listStyle(SidebarListStyle())
     }
 }

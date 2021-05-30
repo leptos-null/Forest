@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA5B6AEA2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */; };
+		FA5B6AEB2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */; };
 		FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE99002650907100FDDD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EC2650906F00FDDD2E /* ContentView.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNavigationLink.swift; sourceTree = "<group>"; };
 		FAFE98EB2650906F00FDDD2E /* ForestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestApp.swift; sourceTree = "<group>"; };
 		FAFE98EC2650906F00FDDD2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAFE98ED2650907100FDDD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 			children = (
 				FAFE98EC2650906F00FDDD2E /* ContentView.swift */,
 				FAFE991D26509F9400FDDD2E /* AssociatedAssetsView.swift */,
+				FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */,
 				FAFE99202650A02900FDDD2E /* AssetView.swift */,
 				FAFE991A26509EAF00FDDD2E /* AssetPlayerView.swift */,
 				FAFE991526509C2D00FDDD2E /* PlayerView.swift */,
@@ -238,6 +242,7 @@
 				FAFE991326509B6500FDDD2E /* Entries.swift in Sources */,
 				FAFE991E26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */,
 				FAFE991626509C2D00FDDD2E /* PlayerView.swift in Sources */,
+				FA5B6AEA2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */,
 				FAFE991B26509EAF00FDDD2E /* AssetPlayerView.swift in Sources */,
 				FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */,
 				FAFE99102650997500FDDD2E /* Tar.swift in Sources */,
@@ -254,6 +259,7 @@
 				FAFE991426509B6500FDDD2E /* Entries.swift in Sources */,
 				FAFE991F26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */,
 				FAFE991726509C2D00FDDD2E /* PlayerView.swift in Sources */,
+				FA5B6AEB2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */,
 				FAFE991C26509EAF00FDDD2E /* AssetPlayerView.swift in Sources */,
 				FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */,
 				FAFE99112650997500FDDD2E /* Tar.swift in Sources */,

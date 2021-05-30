@@ -33,8 +33,14 @@ struct ContentView: View {
     
     var body: some View {
         if let resources = resources {
-            List(resources.associatedAssets) { associatedAsset in
-                AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
+            NavigationView {
+                List {
+                    ForEach(resources.associatedAssets) { associatedAsset in
+                        AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
+                    }
+                }
+                .navigationTitle("Forest")
+                .listStyle(SidebarListStyle())
             }
         } else if let downloadDataTask = downloadDataTask {
             ProgressView(downloadDataTask.progress)

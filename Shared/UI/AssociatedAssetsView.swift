@@ -13,15 +13,12 @@ struct AssociatedAssetsView: View {
     let decodeBundle: Bundle
     
     var body: some View {
-        GroupBox {
-            DisclosureGroup(associatedAsset.id) {
-                ForEach(associatedAsset.assets) { asset in
-                    AssetView(asset: asset, decodeBundle: decodeBundle)
-                }
+        Section(header: Text(associatedAsset.id).foregroundColor(.gray)) {
+            ForEach(associatedAsset.assets) { asset in
+                AssetNavigationLink(asset: asset, decodeBundle: decodeBundle)
             }
-            .font(.title)
-            .padding(.horizontal, 16)
         }
+        .font(.headline)
     }
 }
 
