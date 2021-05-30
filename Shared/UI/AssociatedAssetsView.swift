@@ -29,14 +29,7 @@ extension Resources {
     }
     
     var associatedAssets: [AssociatedAssets] {
-        entries.assets
-            .reduce(into: [:]) { result, asset in
-                let key = asset.accessibilityLabel
-                
-                var results = result[key] ?? []
-                results.append(asset)
-                result[key] = results
-            }
+        Dictionary(grouping: entries.assets) { $0.accessibilityLabel }
             .map { (key: String, value: [Entries.Asset]) in
                 AssociatedAssets(id: key, assets: value)
             }
