@@ -21,14 +21,8 @@ struct PlayerView {
     var player: AVPlayer {
         let player = AVPlayer(url: url)
         
-        let timeStampCount = timeStamps.count
-        let ranges = (0 ..< timeStampCount).map { idx -> Range<TimeInterval> in
-            let nextIdx = idx + 1
-            let next: TimeInterval = (nextIdx < timeStampCount)
-                ? timeStamps[nextIdx]
-                : .infinity
-            return timeStamps[idx] ..< next
-        }
+        let offsetStamps = timeStamps[1...] + [ .infinity ]
+        let ranges = zip(timeStamps, offsetStamps).map { $0 ..< $1 }
         player.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1000), queue: nil) { time in
             let currentSeconds = time.seconds
             timeStampIndex = ranges.firstIndex { $0.contains(currentSeconds) }
