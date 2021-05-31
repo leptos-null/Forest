@@ -33,18 +33,21 @@ struct AssetPlayerView: View {
 
 extension Entries.Asset {
     struct Link: Identifiable {
-        let id: String
         let name: String
         let url: URL
+        
+        var id: String {
+            url.absoluteString
+        }
     }
     
     var links: [Link] {
         [
-            Link(id: "url_1080_H264", name: "1080 H264", url: url_1080_H264),
-            Link(id: "url_1080_HDR", name: "1080 HDR", url: url_1080_HDR),
-            Link(id: "url_1080_SDR", name: "1080 SDR", url: url_1080_SDR),
-            Link(id: "url_4K_HDR", name: "4K HDR", url: url_4K_HDR),
-            Link(id: "url_4K_SDR", name: "4K SDR", url: url_4K_SDR),
+            Link(name: "1080 H264", url: url_1080_H264),
+            Link(name: "1080 HDR", url: url_1080_HDR),
+            Link(name: "1080 SDR", url: url_1080_SDR),
+            Link(name: "4K HDR", url: url_4K_HDR),
+            Link(name: "4K SDR", url: url_4K_SDR),
         ]
     }
 }
