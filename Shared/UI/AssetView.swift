@@ -38,6 +38,7 @@ struct AssetView: View {
             
             PointsOfInterestTable(pointsOfInterest, activeIndex: pointOfInterestIndex)
                 .padding(.top, 8)
+                .animation(.easeInOut(duration: 0.45), value: pointOfInterestIndex)
         }
         .navigationTitle(asset.accessibilityLabel)
     }
