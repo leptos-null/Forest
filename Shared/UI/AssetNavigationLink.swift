@@ -27,5 +27,6 @@ struct AssetNavigationLink: View {
             destination: AssetView(asset: asset, pointsOfInterest: pointsOfInterest)
         )
         .font(.body)
+        .lineLimit(nil)
     }
 }
