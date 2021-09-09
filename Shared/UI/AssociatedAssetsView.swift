@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AssociatedAssetsView: View {
-    let associatedAsset: Resources.AssociatedAssets
+    let associatedAsset: Entries.AssociatedAssets
     let decodeBundle: Bundle
     
     var body: some View {
@@ -22,14 +22,14 @@ struct AssociatedAssetsView: View {
     }
 }
 
-extension Resources {
+extension Entries {
     struct AssociatedAssets: Identifiable {
         let id: String
         let assets: [Entries.Asset]
     }
     
     var associatedAssets: [AssociatedAssets] {
-        Dictionary(grouping: entries.assets) { $0.accessibilityLabel }
+        Dictionary(grouping: assets) { $0.accessibilityLabel }
             .map { (key: String, value: [Entries.Asset]) in
                 AssociatedAssets(id: key, assets: value)
             }

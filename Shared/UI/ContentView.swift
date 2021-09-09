@@ -35,7 +35,7 @@ struct ContentView: View {
         if let resources = resources {
             NavigationView {
                 List {
-                    ForEach(resources.associatedAssets) { associatedAsset in
+                    ForEach(resources.entries.associatedAssets) { associatedAsset in
                         AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
                     }
                 }
