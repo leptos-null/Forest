@@ -25,5 +25,8 @@ struct ForestApp: App {
                 // set some minimum dimensions to avoid very small sizes, and odd re-sizing during the download flow
                 .frame(minWidth: 360, minHeight: 240)
         }
+        .commands {
+            SidebarCommands()
+        }
     }
 }
