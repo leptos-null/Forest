@@ -44,7 +44,7 @@ struct ContentView: View {
             }
         } else if let downloadDataTask = downloadDataTask {
             ProgressView(downloadDataTask.progress)
-                .padding([.leading, .trailing], 24)
+                .padding(.horizontal, 24)
         } else {
             if let errorString = errorString {
                 Text(errorString)
@@ -65,7 +65,9 @@ struct ContentView: View {
                 }
             }
             .font(.headline)
-            .padding(24)
+            .padding(12)
+            .contentShape(RoundedRectangle(cornerRadius: 8))
+            .padding(12)
         }
     }
 }
