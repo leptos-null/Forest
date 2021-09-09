@@ -12,6 +12,9 @@ struct AssetView: View {
     let asset: Entries.Asset
     let pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest]
     
+    @State var pointOfInterestIndex: Int? = 0
+    @State var pickerSelection: Entries.Asset.Link
+    
     func stringFrom(seconds: TimeInterval) -> String {
         let secondsPerMinute: TimeInterval = 60
         let divided = seconds/secondsPerMinute
@@ -20,31 +23,84 @@ struct AssetView: View {
         return String(format: "%.0f:%02.0f", minutes, remainder)
     }
     
+    private func isPointOfInterestActive(_ pointOfInterest: Entries.Asset.LocalizedPointOfInterest) -> Bool {
+        guard let pointOfInterestIndex = pointOfInterestIndex else { return false }
+        return pointOfInterest == pointsOfInterest[pointOfInterestIndex]
+    }
+    
     var body: some View {
-        List {
-            Section(header: Text("Points of Interest").foregroundColor(.gray)) {
-                ForEach(pointsOfInterest) { pointOfInterest in
-                    HStack {
-                        Text(pointOfInterest.value)
-                        Spacer()
-                        Text(stringFrom(seconds: pointOfInterest.timeInterval))
-                            .font(.footnote)
+        ScrollView {
+            PlayerView(url: pickerSelection.url, timeStamps: pointsOfInterest.map(\.timeInterval), timeStampIndex: $pointOfInterestIndex)
+                .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
+            
+            HStack(spacing: 16) {
+                Picker("Video", selection: $pickerSelection) {
+                    ForEach(asset.links) { link in
+                        Text(link.name)
+                            .tag(link)
                     }
                 }
-                .font(.body)
-                .padding(.horizontal, 16)
-            }
-            .font(.headline)
-            Section(header: Text("URLs").foregroundColor(.gray)) {
-                ForEach(asset.links) { link in
-                    AssetPlayerView(link: link, pointsOfInterest: pointsOfInterest)
+                .labelsHidden() // on macOS, hides the picker title
+                .pickerStyle(SegmentedPickerStyle())
+                
+                Link(destination: pickerSelection.url) {
+                    Text(Image(systemName: "safari"))
                 }
-                .font(.body)
-                .padding(.horizontal, 16)
             }
-            .font(.headline)
+            .padding(.horizontal, 16)
+            
+            Group {
+                HStack {
+                    Text("Points of Interest")
+                        .font(.headline)
+                        .padding(.leading, 24)
+                    
+                    Spacer()
+                }
+                .padding(.top, 8)
+                .padding(.bottom, 4)
+                
+                VStack(spacing: 0) {
+                    ForEach(pointsOfInterest) { pointOfInterest in
+                        HStack {
+                            Text(pointOfInterest.value)
+                            Spacer()
+                            Text(stringFrom(seconds: pointOfInterest.timeInterval))
+                                .font(.footnote)
+                        }
+                        .padding(8)
+                        .padding(.horizontal, 4)
+                        .background(
+                            (isPointOfInterestActive(pointOfInterest) ? Color.accentColor.opacity(0.5) : Color.clear)
+                                .cornerRadius(6)
+                        )
+                    }
+                    .font(.body)
+                    .padding(.horizontal, 16)
+                }
+            }
         }
         .navigationTitle(asset.accessibilityLabel)
-        .listStyle(SidebarListStyle())
+    }
+}
+
+extension Entries.Asset {
+    struct Link: Identifiable, Hashable {
+        let name: String
+        let url: URL
+        
+        var id: String {
+            url.absoluteString
+        }
+    }
+    
+    var links: [Link] {
+        [
+            Link(name: "1080 H264", url: url_1080_H264),
+            Link(name: "1080 HDR", url: url_1080_HDR),
+            Link(name: "1080 SDR", url: url_1080_SDR),
+            Link(name: "4K HDR", url: url_4K_HDR),
+            Link(name: "4K SDR", url: url_4K_SDR),
+        ]
     }
 }
