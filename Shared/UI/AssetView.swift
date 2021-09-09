@@ -15,19 +15,6 @@ struct AssetView: View {
     @State var pointOfInterestIndex: Int? = 0
     @State var pickerSelection: Entries.Asset.Link
     
-    func stringFrom(seconds: TimeInterval) -> String {
-        let secondsPerMinute: TimeInterval = 60
-        let divided = seconds/secondsPerMinute
-        let minutes = divided.rounded(.towardZero)
-        let remainder = seconds - minutes * secondsPerMinute
-        return String(format: "%.0f:%02.0f", minutes, remainder)
-    }
-    
-    private func isPointOfInterestActive(_ pointOfInterest: Entries.Asset.LocalizedPointOfInterest) -> Bool {
-        guard let pointOfInterestIndex = pointOfInterestIndex else { return false }
-        return pointOfInterest == pointsOfInterest[pointOfInterestIndex]
-    }
-    
     var body: some View {
         ScrollView {
             PlayerView(url: pickerSelection.url, timeStamps: pointsOfInterest.map(\.timeInterval), timeStampIndex: $pointOfInterestIndex)
@@ -49,36 +36,8 @@ struct AssetView: View {
             }
             .padding(.horizontal, 16)
             
-            Group {
-                HStack {
-                    Text("Points of Interest")
-                        .font(.headline)
-                        .padding(.leading, 24)
-                    
-                    Spacer()
-                }
+            PointsOfInterestTable(pointsOfInterest, activeIndex: pointOfInterestIndex)
                 .padding(.top, 8)
-                .padding(.bottom, 4)
-                
-                VStack(spacing: 0) {
-                    ForEach(pointsOfInterest) { pointOfInterest in
-                        HStack {
-                            Text(pointOfInterest.value)
-                            Spacer()
-                            Text(stringFrom(seconds: pointOfInterest.timeInterval))
-                                .font(.footnote)
-                        }
-                        .padding(8)
-                        .padding(.horizontal, 4)
-                        .background(
-                            (isPointOfInterestActive(pointOfInterest) ? Color.accentColor.opacity(0.5) : Color.clear)
-                                .cornerRadius(6)
-                        )
-                    }
-                    .font(.body)
-                    .padding(.horizontal, 16)
-                }
-            }
         }
         .navigationTitle(asset.accessibilityLabel)
     }
