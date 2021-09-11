@@ -28,7 +28,7 @@ struct ShuffleSection: View {
     let resources: Resources
     
     var body: some View {
-        Section(header: Text("Shuffle").foregroundColor(.gray)) {
+        Section(header: SidebarSectionHeader("Shuffle")) {
             ShuffleNavigationLink(assets: resources.entries.assets, decodeBundle: resources.bundle) {
                 Self.Row(title: "All", subtitle: "Shuffle all videos.")
             }
@@ -47,6 +47,5 @@ struct ShuffleSection: View {
                 }
             }
         }
-        .font(.headline)
     }
 }

@@ -13,12 +13,11 @@ struct AssociatedAssetsView: View {
     let decodeBundle: Bundle
     
     var body: some View {
-        Section(header: Text(associatedAsset.id).foregroundColor(.gray)) {
+        Section(header: SidebarSectionHeader(associatedAsset.id)) {
             ForEach(associatedAsset.assets) { asset in
                 AssetNavigationLink(asset: asset, decodeBundle: decodeBundle)
             }
         }
-        .font(.headline)
     }
 }
 

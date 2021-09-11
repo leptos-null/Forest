@@ -21,6 +21,8 @@
 		FAB57F4826EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */; };
 		FAB57F4A26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */; };
 		FAB57F4B26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */; };
+		FAB57F4D26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */; };
+		FAB57F4E26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */; };
 		FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE99002650907100FDDD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EC2650906F00FDDD2E /* ContentView.swift */; };
@@ -49,6 +51,7 @@
 		FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleNavigationLink.swift; sourceTree = "<group>"; };
 		FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+VideoVariant.swift"; sourceTree = "<group>"; };
 		FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+LocalizedPointOfInterest.swift"; sourceTree = "<group>"; };
+		FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarSectionHeader.swift; sourceTree = "<group>"; };
 		FAFE98EB2650906F00FDDD2E /* ForestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestApp.swift; sourceTree = "<group>"; };
 		FAFE98EC2650906F00FDDD2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAFE98ED2650907100FDDD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFE98EC2650906F00FDDD2E /* ContentView.swift */,
+				FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */,
 				FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */,
 				FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */,
 				FAFE991D26509F9400FDDD2E /* AssociatedAssetsView.swift */,
@@ -269,6 +273,7 @@
 				FA5B6AEA2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */,
 				FAB57F3B26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */,
 				FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */,
+				FAB57F4D26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */,
 				FAFE99102650997500FDDD2E /* Tar.swift in Sources */,
 				FAB57F4A26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */,
 			);
@@ -291,6 +296,7 @@
 				FA5B6AEB2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */,
 				FAB57F3C26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */,
 				FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */,
+				FAB57F4E26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */,
 				FAFE99112650997500FDDD2E /* Tar.swift in Sources */,
 				FAB57F4B26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */,
 			);
