@@ -11,26 +11,45 @@ import SwiftUI
 struct AssetView: View {
     let asset: Entries.Asset
     let pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest]
+    let shouldAutoPlay: Bool
     
-    @State var pointOfInterestIndex: Int? = 0
-    @State var pickerSelection: Entries.Asset.Link
+    @State private var pointOfInterestIndex: Int? = 0
+    @State var videoVariant: Entries.Asset.VideoVariant
+    
+    let playerItemEndCallback: (() -> Void)?
+    
+    init(asset: Entries.Asset, pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest],
+         shouldAutoPlay: Bool = false,
+         videoVariant: State<Entries.Asset.VideoVariant> = State(initialValue: .c_1080_HDR),
+         playerItemEndCallback: (() -> Void)? = nil) {
+        self.asset = asset
+        self.pointsOfInterest = pointsOfInterest
+        self.shouldAutoPlay = shouldAutoPlay
+        self._videoVariant = videoVariant
+        self.playerItemEndCallback = playerItemEndCallback
+    }
     
     var body: some View {
         ScrollView {
-            PlayerView(url: pickerSelection.url, timeStamps: pointsOfInterest.map(\.timeInterval), timeStampIndex: $pointOfInterestIndex)
-                .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
+            PlayerView(
+                url: asset.url(for: videoVariant),
+                timeStamps: pointsOfInterest.map(\.timeInterval),
+                timeStampIndex: $pointOfInterestIndex,
+                shouldAutoPlay: shouldAutoPlay,
+                playerItemEndCallback: playerItemEndCallback
+            )
+            .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
             
             HStack(spacing: 16) {
-                Picker("Video", selection: $pickerSelection) {
-                    ForEach(asset.links) { link in
-                        Text(link.name)
-                            .tag(link)
+                Picker("Video Variant", selection: $videoVariant) {
+                    ForEach(Entries.Asset.VideoVariant.allCases) { variant in
+                        Text(variant.name)
                     }
                 }
                 .labelsHidden() // on macOS, hides the picker title
                 .pickerStyle(SegmentedPickerStyle())
                 
-                Link(destination: pickerSelection.url) {
+                Link(destination: asset.url(for: videoVariant)) {
                     Text(Image(systemName: "safari"))
                 }
             }
@@ -41,26 +60,5 @@ struct AssetView: View {
                 .animation(.easeInOut(duration: 0.45), value: pointOfInterestIndex)
         }
         .navigationTitle(asset.accessibilityLabel)
-    }
-}
-
-extension Entries.Asset {
-    struct Link: Identifiable, Hashable {
-        let name: String
-        let url: URL
-        
-        var id: String {
-            url.absoluteString
-        }
-    }
-    
-    var links: [Link] {
-        [
-            Link(name: "1080 H264", url: url_1080_H264),
-            Link(name: "1080 HDR", url: url_1080_HDR),
-            Link(name: "1080 SDR", url: url_1080_SDR),
-            Link(name: "4K HDR", url: url_4K_HDR),
-            Link(name: "4K SDR", url: url_4K_SDR),
-        ]
     }
 }

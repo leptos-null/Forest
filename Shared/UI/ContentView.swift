@@ -35,6 +35,8 @@ struct ContentView: View {
         if let resources = resources {
             NavigationView {
                 List {
+                    ShuffleSection(resources: resources)
+                    
                     ForEach(resources.entries.associatedAssets) { associatedAsset in
                         AssociatedAssetsView(associatedAsset: associatedAsset, decodeBundle: resources.bundle)
                     }

@@ -13,6 +13,12 @@
 		FAB57F3926EA708200DEAD76 /* Collection+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3726EA708200DEAD76 /* Collection+Identifiable.swift */; };
 		FAB57F3B26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3A26EA806700DEAD76 /* PointsOfInterestTable.swift */; };
 		FAB57F3C26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3A26EA806700DEAD76 /* PointsOfInterestTable.swift */; };
+		FAB57F4126EBA06A00DEAD76 /* ShuffleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */; };
+		FAB57F4226EBA06A00DEAD76 /* ShuffleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */; };
+		FAB57F4426EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */; };
+		FAB57F4526EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */; };
+		FAB57F4726EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */; };
+		FAB57F4826EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */; };
 		FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE99002650907100FDDD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EC2650906F00FDDD2E /* ContentView.swift */; };
@@ -37,6 +43,9 @@
 		FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetNavigationLink.swift; sourceTree = "<group>"; };
 		FAB57F3726EA708200DEAD76 /* Collection+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Identifiable.swift"; sourceTree = "<group>"; };
 		FAB57F3A26EA806700DEAD76 /* PointsOfInterestTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsOfInterestTable.swift; sourceTree = "<group>"; };
+		FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleSection.swift; sourceTree = "<group>"; };
+		FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleNavigationLink.swift; sourceTree = "<group>"; };
+		FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Asset+VideoVariant.swift"; sourceTree = "<group>"; };
 		FAFE98EB2650906F00FDDD2E /* ForestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForestApp.swift; sourceTree = "<group>"; };
 		FAFE98EC2650906F00FDDD2E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAFE98ED2650907100FDDD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +98,7 @@
 				FAFE990C265098FD00FDDD2E /* Resources.swift */,
 				FAFE991226509B6500FDDD2E /* Entries.swift */,
 				FAB57F3726EA708200DEAD76 /* Collection+Identifiable.swift */,
+				FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */,
 				FAFE990F2650997500FDDD2E /* Tar.swift */,
 				FAFE98ED2650907100FDDD2E /* Assets.xcassets */,
 			);
@@ -133,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFE98EC2650906F00FDDD2E /* ContentView.swift */,
+				FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */,
+				FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */,
 				FAFE991D26509F9400FDDD2E /* AssociatedAssetsView.swift */,
 				FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */,
 				FAFE99202650A02900FDDD2E /* AssetView.swift */,
@@ -244,6 +256,9 @@
 				FAFE990D265098FD00FDDD2E /* Resources.swift in Sources */,
 				FAFE99212650A02900FDDD2E /* AssetView.swift in Sources */,
 				FAFE991326509B6500FDDD2E /* Entries.swift in Sources */,
+				FAB57F4726EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */,
+				FAB57F4126EBA06A00DEAD76 /* ShuffleSection.swift in Sources */,
+				FAB57F4426EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */,
 				FAFE991E26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */,
 				FAB57F3826EA708200DEAD76 /* Collection+Identifiable.swift in Sources */,
 				FAFE991626509C2D00FDDD2E /* PlayerView.swift in Sources */,
@@ -262,6 +277,9 @@
 				FAFE990E265098FD00FDDD2E /* Resources.swift in Sources */,
 				FAFE99222650A02900FDDD2E /* AssetView.swift in Sources */,
 				FAFE991426509B6500FDDD2E /* Entries.swift in Sources */,
+				FAB57F4826EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */,
+				FAB57F4226EBA06A00DEAD76 /* ShuffleSection.swift in Sources */,
+				FAB57F4526EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */,
 				FAFE991F26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */,
 				FAB57F3926EA708200DEAD76 /* Collection+Identifiable.swift in Sources */,
 				FAFE991726509C2D00FDDD2E /* PlayerView.swift in Sources */,

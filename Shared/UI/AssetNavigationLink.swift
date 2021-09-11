@@ -24,7 +24,7 @@ struct AssetNavigationLink: View {
     var body: some View {
         NavigationLink(
             navigationTitle,
-            destination: AssetView(asset: asset, pointsOfInterest: pointsOfInterest, pickerSelection: asset.links[1])
+            destination: AssetView(asset: asset, pointsOfInterest: pointsOfInterest)
         )
         .font(.body)
         .lineLimit(nil)

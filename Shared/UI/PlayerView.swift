@@ -18,6 +18,12 @@ final class PlayerView {
     let showsPlaybackControls: Bool
     let videoGravity: AVLayerVideoGravity
     
+    let shouldAutoPlay: Bool
+    
+    let playerItemEndCallback: (() -> Void)?
+    
+    // MARK: - Periodic Time Observing
+    
     private var playerTimeObserverPair: (player: AVPlayer, timeObserver: Any)? {
         didSet {
             guard let previous = oldValue else { return }
@@ -38,17 +44,62 @@ final class PlayerView {
         playerTimeObserverPair = (player, observer)
     }
     
+    // MARK: - End Time Observing
+    
+    private let notificationCenter: NotificationCenter = .default
+    private let notificationName: Notification.Name = .AVPlayerItemDidPlayToEndTime
+    
+    private var playerItemObserver: NSObjectProtocol? {
+        didSet {
+            guard let observer = oldValue else { return }
+            notificationCenter.removeObserver(observer, name: notificationName, object: nil)
+        }
+    }
+    
+    private func addEndTimeObserver(to playerItem: AVPlayerItem) {
+        playerItemObserver = notificationCenter.addObserver(forName: notificationName, object: playerItem, queue: .main) { [weak self] note in
+            guard let self = self else { return }
+            self.timeStampIndex = nil
+            self.playerItemEndCallback?()
+        }
+    }
+    
+    // MARK: -
+    
     init(url: URL, timeStamps: [TimeInterval], timeStampIndex: Binding<Int?>,
-         showsPlaybackControls: Bool = true, videoGravity: AVLayerVideoGravity = .resizeAspect) {
+         showsPlaybackControls: Bool = true, videoGravity: AVLayerVideoGravity = .resizeAspect,
+         shouldAutoPlay: Bool = false, playerItemEndCallback: (() -> Void)? = nil) {
         self.url = url
         self.timeStamps = timeStamps
         self._timeStampIndex = timeStampIndex
         self.showsPlaybackControls = showsPlaybackControls
         self.videoGravity = videoGravity
+        self.shouldAutoPlay = shouldAutoPlay
+        self.playerItemEndCallback = playerItemEndCallback
+    }
+    
+    /// Common routine acting upon player object
+    /// - Note: Should only be called from Representable `update` functions
+    private func commonUpdatePlayer(_ player: AVPlayer) {
+        let currentAsset = player.currentItem?.asset as? AVURLAsset
+        if currentAsset?.url != url {
+            player.replaceCurrentItem(with: AVPlayerItem(url: url))
+            if shouldAutoPlay {
+                player.play()
+            }
+        }
+        if playerTimeObserverPair?.player != player {
+            addPeriodicTimeObserver(to: player)
+        }
+        guard let playerItem = player.currentItem else {
+            fatalError("player.currentItem must be valid at this point")
+        }
+        addEndTimeObserver(to: playerItem)
     }
     
     deinit {
         playerTimeObserverPair = nil
+        playerItemObserver = nil
     }
 }
 
@@ -59,17 +110,17 @@ extension PlayerView: NSViewRepresentable {
         let playerView = AVPlayerView()
         playerView.updatesNowPlayingInfoCenter = false
         playerView.allowsPictureInPicturePlayback = true
+        
+        playerView.player = AVPlayer()
+        
         return playerView
     }
     
     func updateNSView(_ playerView: AVPlayerView, context: Context) {
-        let currentAsset = playerView.player?.currentItem?.asset as? AVURLAsset
-        if currentAsset?.url != url {
-            playerView.player = AVPlayer(url: url)
+        guard let player = playerView.player else {
+            fatalError("playerView.player should always be set in makeNSView")
         }
-        if let player = playerView.player, playerTimeObserverPair?.player != player {
-            addPeriodicTimeObserver(to: player)
-        }
+        commonUpdatePlayer(player)
         
         playerView.controlsStyle = showsPlaybackControls ? .inline : .none
         playerView.showsFullScreenToggleButton = showsPlaybackControls
@@ -84,17 +135,17 @@ extension PlayerView: UIViewControllerRepresentable {
         let playerController = AVPlayerViewController()
         playerController.updatesNowPlayingInfoCenter = false
         playerController.allowsPictureInPicturePlayback = true
+        
+        playerController.player = AVPlayer()
+        
         return playerController
     }
     
     func updateUIViewController(_ playerController: AVPlayerViewController, context: Context) {
-        let currentAsset = playerController.player?.currentItem?.asset as? AVURLAsset
-        if currentAsset?.url != url {
-            playerController.player = AVPlayer(url: url)
+        guard let player = playerController.player else {
+            fatalError("playerController.player should always be set in makeUIViewController")
         }
-        if let player = playerController.player, playerTimeObserverPair?.player != player {
-            addPeriodicTimeObserver(to: player)
-        }
+        commonUpdatePlayer(player)
         
         playerController.showsPlaybackControls = showsPlaybackControls
         playerController.videoGravity = videoGravity
