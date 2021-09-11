@@ -53,28 +53,30 @@ struct ContentView: View {
             ProgressView(downloadDataTask.progress)
                 .padding(.horizontal, 24)
         } else {
-            if let errorString = errorString {
-                Text(errorString)
-                    .font(.callout)
-                    .padding(16)
-                    .background(Color.red)
-                    .cornerRadius(8)
-                    .foregroundColor(.white)
-                    .padding(24)
-            }
-            
-            Button("Download Resources") {
-                downloadDataTask = resourceDescriptor.downloadResources { result in
-                    DispatchQueue.main.async {
-                        resourceResult = result
-                        downloadDataTask = nil
+            VStack(spacing: 0) {
+                if let errorString = errorString {
+                    Text(errorString)
+                        .font(.callout)
+                        .padding(16)
+                        .background(Color.red)
+                        .cornerRadius(8)
+                        .foregroundColor(.white)
+                        .padding(24)
+                }
+                
+                Button("Download Resources") {
+                    downloadDataTask = resourceDescriptor.downloadResources { result in
+                        DispatchQueue.main.async {
+                            resourceResult = result
+                            downloadDataTask = nil
+                        }
                     }
                 }
+                .font(.headline)
+                .padding(12)
+                .contentShape(RoundedRectangle(cornerRadius: 8))
+                .padding(12)
             }
-            .font(.headline)
-            .padding(12)
-            .contentShape(RoundedRectangle(cornerRadius: 8))
-            .padding(12)
         }
     }
 }
