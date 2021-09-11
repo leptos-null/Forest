@@ -10,18 +10,16 @@ import SwiftUI
 
 @main
 struct ForestApp: App {
-    let resourceDescriptor: Resources.Descriptor
-    
-    init() {
+    var resourceDescriptor: Resources.Descriptor {
         let supportDirectories = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         guard let supportDirectory = supportDirectories.first else { fatalError("Could not locate resource directory") }
         let resourceURL = supportDirectory.appendingPathComponent("Forest/Resources")
-        resourceDescriptor = Resources.Descriptor(directory: resourceURL)
+        return Resources.Descriptor(directory: resourceURL)
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView(resourceDescriptor: resourceDescriptor, resourceResult: resourceDescriptor.resourceResult)
+            ContentView(resourceDescriptor: resourceDescriptor)
                 // set some minimum dimensions to avoid very small sizes, and odd re-sizing during the download flow
                 .frame(minWidth: 360, minHeight: 240)
         }

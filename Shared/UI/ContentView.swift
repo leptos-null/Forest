@@ -11,8 +11,8 @@ import SwiftUI
 struct ContentView: View {
     let resourceDescriptor: Resources.Descriptor
     
-    @State var resourceResult: Result<Resources, Error>
-    @State var downloadDataTask: URLSessionDataTask?
+    @State private var resourceResult: Result<Resources, Error>
+    @State private var downloadDataTask: URLSessionDataTask?
     
     var resources: Resources? {
         switch resourceResult {
@@ -29,6 +29,11 @@ struct ContentView: View {
         default:
             return nil
         }
+    }
+    
+    init(resourceDescriptor: Resources.Descriptor) {
+        self.resourceDescriptor = resourceDescriptor
+        self._resourceResult = State(initialValue: resourceDescriptor.resourceResult)
     }
     
     var body: some View {
@@ -77,8 +82,7 @@ struct ContentView: View {
 struct ContentViewPreviews: PreviewProvider {
     static var previews: some View {
         ContentView(
-            resourceDescriptor: Resources.Descriptor(directory: URL(fileURLWithPath: "/dev/null")),
-            resourceResult: .failure(POSIXError(.EBADF))
+            resourceDescriptor: Resources.Descriptor(directory: URL(fileURLWithPath: "/dev/null"))
         )
     }
 }

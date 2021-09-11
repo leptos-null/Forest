@@ -10,10 +10,11 @@ import SwiftUI
 
 struct AssetNavigationLink: View {
     let asset: Entries.Asset
-    let decodeBundle: Bundle
+    let pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest]
     
-    var pointsOfInterest: [Entries.Asset.LocalizedPointOfInterest] {
-        asset.decodePointsOfInterest(from: decodeBundle)
+    init(asset: Entries.Asset, decodeBundle: Bundle) {
+        self.asset = asset
+        self.pointsOfInterest = asset.decodePointsOfInterest(from: decodeBundle)
             .sorted { $0.timeInterval < $1.timeInterval }
     }
     
