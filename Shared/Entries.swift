@@ -49,13 +49,16 @@ struct Entries: Codable {
         let localizedNameKey: String
         let preferredOrder: Int
         let previewImage: URL
-        let representativeAssetID: String
+        let representativeAssetID: UUID
         
         func localizedDescription(from bundle: Bundle) -> String {
             bundle.localizedString(forKey: localizedDescriptionKey, value: nil, table: "Localizable.nocache")
         }
         func localizedName(from bundle: Bundle) -> String {
             bundle.localizedString(forKey: localizedNameKey, value: nil, table: "Localizable.nocache")
+        }
+        func representativeAsset(in entries: Entries) -> Entries.Asset? {
+            entries.assets.identifiableLookup[representativeAssetID]
         }
     }
     
