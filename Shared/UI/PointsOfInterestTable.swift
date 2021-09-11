@@ -40,7 +40,8 @@ struct PointsOfInterestTable: View {
             ForEach(pointsOfInterest) { pointOfInterest in
                 HStack {
                     Text(pointOfInterest.value)
-                    Spacer()
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 4)
                     Text(stringFrom(seconds: pointOfInterest.timeInterval))
                         .font(.footnote)
                 }
