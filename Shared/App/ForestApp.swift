@@ -13,7 +13,7 @@ struct ForestApp: App {
     var resourceDescriptor: Resources.Descriptor {
         let supportDirectories = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
         guard let supportDirectory = supportDirectories.first else { fatalError("Could not locate resource directory") }
-        let resourceURL = supportDirectory.appendingPathComponent("Forest/Resources")
+        let resourceURL = supportDirectory.appendingPathComponent("Forest/Resources-15")
         return Resources.Descriptor(directory: resourceURL)
     }
     

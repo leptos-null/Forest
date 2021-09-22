@@ -14,7 +14,7 @@ struct Resources {
         
         var remoteResourceLocation: URL {
             // thanks to https://github.com/JohnCoates/Aerial/blob/master/Documentation/OfflineMode.md
-            guard let url = URL(string: "https://sylvan.apple.com/Aerials/resources-13.tar") else {
+            guard let url = URL(string: "https://sylvan.apple.com/Aerials/resources-15.tar") else {
                 fatalError("remoteResourceLocation must be able to be constructed")
             }
             return url
