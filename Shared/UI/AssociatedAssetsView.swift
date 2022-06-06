@@ -28,7 +28,7 @@ extension Entries {
     }
     
     var associatedAssets: [AssociatedAssets] {
-        Dictionary(grouping: assets) { $0.accessibilityLabel }
+        Dictionary(grouping: assets, by: \.accessibilityLabel)
             .map { (key: String, value: [Entries.Asset]) in
                 AssociatedAssets(id: key, assets: value)
             }
