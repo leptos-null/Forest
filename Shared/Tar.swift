@@ -155,8 +155,11 @@ struct Tar {
             switch typeFlag {
             case .regular, .character, .block, .contiguous:
                 fileManager.createFile(atPath: writeLocation.path, contents: data, attributes: attributes)
-            case .link:
-                throw POSIXError(.ENOSYS) // "hard links" not currently supported
+            case .link(let path):
+                guard let destinationURL = URL(string: path, relativeTo: writeLocation) else {
+                    throw URLError(.badURL)
+                }
+                try fileManager.linkItem(at: destinationURL, to: writeLocation)
             case .symbolicLink(let path):
                 guard let destinationURL = URL(string: path, relativeTo: writeLocation) else {
                     throw URLError(.badURL)
