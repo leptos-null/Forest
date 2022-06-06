@@ -23,11 +23,12 @@ struct AssetNavigationLink: View {
     }
     
     var body: some View {
-        NavigationLink(
-            navigationTitle,
-            destination: AssetView(asset: asset, pointsOfInterest: pointsOfInterest)
-        )
-        .font(.body)
-        .lineLimit(nil)
+        NavigationLink {
+            AssetView(asset: asset, pointsOfInterest: pointsOfInterest)
+        } label: {
+            Text(navigationTitle)
+                .font(.body)
+                .lineLimit(nil)
+        }
     }
 }
