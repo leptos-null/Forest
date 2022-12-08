@@ -47,7 +47,7 @@ struct ContentView: View {
                     }
                 }
                 .navigationTitle("Forest")
-                .listStyle(SidebarListStyle())
+                .listStyle(.sidebar)
             }
         } else if let downloadDataTask = downloadDataTask {
             ProgressView(downloadDataTask.progress)

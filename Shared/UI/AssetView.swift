@@ -14,7 +14,7 @@ struct AssetView: View {
     let shouldAutoPlay: Bool
     
     @State private var pointOfInterestIndex: Int? = 0
-    @State var videoVariant: Entries.Asset.VideoVariant
+    @State private var videoVariant: Entries.Asset.VideoVariant
     
     let playerItemEndCallback: (() -> Void)?
     

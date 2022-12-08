@@ -31,7 +31,7 @@ struct SidebarSectionHeaderPreviews: PreviewProvider {
                         Text("Content")
                     }
                 }
-                .listStyle(SidebarListStyle())
+                .listStyle(.sidebar)
                 .preferredColorScheme(colorScheme)
                 .frame(width: 200, height: 80)
             }

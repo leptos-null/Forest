@@ -168,12 +168,14 @@ struct Tar {
             case .directory:
                 try fileManager.createDirectory(at: writeLocation, withIntermediateDirectories: false, attributes: attributes)
             case .fifo:
-                let mkfifoResult = writeLocation.withUnsafeFileSystemRepresentation { fileName in
-                    mkfifo(fileName, mode)
+                let (mkfifoResult, errnoCopy) = writeLocation.withUnsafeFileSystemRepresentation { fileName -> (Int32, Int32) in
+                    let status = mkfifo(fileName, mode)
+                    let globalError = errno // copy errno since it may change before we access it again later
+                    return (status, globalError)
                 }
                 guard mkfifoResult == 0 else {
-                    guard let errorCode = POSIXError.Code(rawValue: errno) else {
-                        fatalError("errno (\(errno)) could not be translated to POSIXError.Code")
+                    guard let errorCode = POSIXError.Code(rawValue: errnoCopy) else {
+                        fatalError("errno (\(errnoCopy)) could not be translated to POSIXError.Code")
                     }
                     throw POSIXError(errorCode)
                 }

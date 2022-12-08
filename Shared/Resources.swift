@@ -41,11 +41,8 @@ struct Resources {
         }
         
         var resourceResult: Result<Resources, Error> {
-            do {
-                let resources = try Resources(url: directory)
-                return .success(resources)
-            } catch {
-                return .failure(error)
+            Result {
+                try Resources(url: directory)
             }
         }
     }

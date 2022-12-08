@@ -12,9 +12,9 @@ struct ShuffleNavigationLink<Label: View>: View {
     let assets: [Entries.Asset]
     let decodeBundle: Bundle
     
-    @State var asset: Entries.Asset?
-    @State var shouldAutoPlay: Bool
-    @State var videoVariant: Entries.Asset.VideoVariant
+    @State private var asset: Entries.Asset?
+    @State private var shouldAutoPlay: Bool
+    @State private var videoVariant: Entries.Asset.VideoVariant
     
     @ViewBuilder var label: () -> Label
     
@@ -37,13 +37,14 @@ struct ShuffleNavigationLink<Label: View>: View {
     
     var body: some View {
         if let asset = asset {
-            NavigationLink(
-                destination: AssetView(asset: asset, pointsOfInterest: pointsOfInterest(for: asset), shouldAutoPlay: shouldAutoPlay, videoVariant: _videoVariant) {
+            NavigationLink {
+                AssetView(asset: asset, pointsOfInterest: pointsOfInterest(for: asset), shouldAutoPlay: shouldAutoPlay, videoVariant: _videoVariant) {
                     self.asset = assets.randomElement()
                     shouldAutoPlay = true
-                },
-                label: label
-            )
+                }
+            } label: {
+                label()
+            }
         }
     }
 }
