@@ -10,11 +10,18 @@ import SwiftUI
 import AVKit
 
 struct PlayerView {
+    struct Metadata {
+        let title: String?
+        let subtitle: String?
+        let description: String?
+    }
+    
     let url: URL
     let timeStamps: [TimeInterval] // assume sorted
     
     @Binding var timeStampIndex: Int?
     
+    let metadata: Metadata
     let showsPlaybackControls: Bool
     let videoGravity: AVLayerVideoGravity
     
@@ -25,11 +32,13 @@ struct PlayerView {
     // MARK: -
     
     init(url: URL, timeStamps: [TimeInterval], timeStampIndex: Binding<Int?>,
+         metadata: Metadata = Metadata(title: nil, subtitle: nil, description: nil),
          showsPlaybackControls: Bool = true, videoGravity: AVLayerVideoGravity = .resizeAspect,
          shouldAutoPlay: Bool = false, playerItemEndCallback: (() -> Void)? = nil) {
         self.url = url
         self.timeStamps = timeStamps
         self._timeStampIndex = timeStampIndex
+        self.metadata = metadata
         self.showsPlaybackControls = showsPlaybackControls
         self.videoGravity = videoGravity
         self.shouldAutoPlay = shouldAutoPlay
@@ -46,7 +55,7 @@ struct PlayerView {
                 player.play()
             }
         }
-        coordinator.updatePlayer(player, timeStamps: timeStamps)
+        coordinator.updatePlayer(player, timeStamps: timeStamps, metadata: metadata)
     }
     
     func makeCoordinator() -> Coordinator {
@@ -62,7 +71,7 @@ struct PlayerView {
             self.playerItemEndCallback = playerItemEndCallback
         }
         
-        func updatePlayer(_ player: AVPlayer, timeStamps: [TimeInterval]) {
+        func updatePlayer(_ player: AVPlayer, timeStamps: [TimeInterval], metadata: Metadata) {
             if playerTimeObserver?.player != player || playerTimeObserver?.timeStamps != timeStamps {
                 addPeriodicTimeObserver(for: timeStamps, to: player)
             }
@@ -70,6 +79,29 @@ struct PlayerView {
                 fatalError("player.currentItem must be valid at this point")
             }
             addEndTimeObserver(to: playerItem)
+#if os(iOS) || os(tvOS)
+            // per https://developer.apple.com/wwdc22/10147
+            var externalMetadata: [AVMetadataItem] = []
+            if let title = metadata.title {
+                let item = AVMutableMetadataItem()
+                item.identifier = .commonIdentifierTitle
+                item.value = title as NSString
+                externalMetadata.append(item)
+            }
+            if let subtitle = metadata.subtitle {
+                let item = AVMutableMetadataItem()
+                item.identifier = .iTunesMetadataTrackSubTitle
+                item.value = subtitle as NSString
+                externalMetadata.append(item)
+            }
+            if let description = metadata.description {
+                let item = AVMutableMetadataItem()
+                item.identifier = .commonIdentifierDescription
+                item.value = description as NSString
+                externalMetadata.append(item)
+            }
+            playerItem.externalMetadata = externalMetadata
+#endif
         }
         
         // MARK: - Periodic Time Observing

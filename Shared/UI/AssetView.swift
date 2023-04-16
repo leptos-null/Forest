@@ -29,12 +29,18 @@ struct AssetView: View {
         self.playerItemEndCallback = playerItemEndCallback
     }
     
+    private var playerMetadata:  PlayerView.Metadata {
+        let subtitle = pointOfInterestIndex.map { pointsOfInterest[$0].value }
+        return PlayerView.Metadata(title: asset.accessibilityLabel, subtitle: subtitle, description: nil)
+    }
+    
     var body: some View {
         ScrollView {
             PlayerView(
                 url: asset.url(for: videoVariant),
                 timeStamps: pointsOfInterest.map(\.timeInterval),
                 timeStampIndex: $pointOfInterestIndex,
+                metadata: playerMetadata,
                 shouldAutoPlay: shouldAutoPlay,
                 playerItemEndCallback: playerItemEndCallback
             )
@@ -47,7 +53,7 @@ struct AssetView: View {
                     }
                 }
                 .labelsHidden() // on macOS, hides the picker title
-                .pickerStyle(SegmentedPickerStyle())
+                .pickerStyle(.segmented)
                 
                 Link(destination: asset.url(for: videoVariant)) {
                     Text(Image(systemName: "safari"))
