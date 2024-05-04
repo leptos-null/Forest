@@ -8,39 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		FA5B6AEA2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */; };
-		FA5B6AEB2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B6AE92662D3CA006461A0 /* AssetNavigationLink.swift */; };
 		FAB57F3826EA708200DEAD76 /* Collection+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3726EA708200DEAD76 /* Collection+Identifiable.swift */; };
-		FAB57F3926EA708200DEAD76 /* Collection+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3726EA708200DEAD76 /* Collection+Identifiable.swift */; };
 		FAB57F3B26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3A26EA806700DEAD76 /* PointsOfInterestTable.swift */; };
-		FAB57F3C26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F3A26EA806700DEAD76 /* PointsOfInterestTable.swift */; };
 		FAB57F4126EBA06A00DEAD76 /* ShuffleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */; };
-		FAB57F4226EBA06A00DEAD76 /* ShuffleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4026EBA06A00DEAD76 /* ShuffleSection.swift */; };
 		FAB57F4426EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */; };
-		FAB57F4526EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4326EBACF700DEAD76 /* ShuffleNavigationLink.swift */; };
 		FAB57F4726EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */; };
-		FAB57F4826EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4626EC500800DEAD76 /* Asset+VideoVariant.swift */; };
 		FAB57F4A26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */; };
-		FAB57F4B26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */; };
 		FAB57F4D26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */; };
-		FAB57F4E26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB57F4C26ED069D00DEAD76 /* SidebarSectionHeader.swift */; };
 		FAFE98FE2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
-		FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EB2650906F00FDDD2E /* ForestApp.swift */; };
 		FAFE99002650907100FDDD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EC2650906F00FDDD2E /* ContentView.swift */; };
-		FAFE99012650907100FDDD2E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE98EC2650906F00FDDD2E /* ContentView.swift */; };
 		FAFE99022650907100FDDD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFE98ED2650907100FDDD2E /* Assets.xcassets */; };
-		FAFE99032650907100FDDD2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFE98ED2650907100FDDD2E /* Assets.xcassets */; };
 		FAFE990D265098FD00FDDD2E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE990C265098FD00FDDD2E /* Resources.swift */; };
-		FAFE990E265098FD00FDDD2E /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE990C265098FD00FDDD2E /* Resources.swift */; };
 		FAFE99102650997500FDDD2E /* Tar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE990F2650997500FDDD2E /* Tar.swift */; };
-		FAFE99112650997500FDDD2E /* Tar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE990F2650997500FDDD2E /* Tar.swift */; };
 		FAFE991326509B6500FDDD2E /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991226509B6500FDDD2E /* Entries.swift */; };
-		FAFE991426509B6500FDDD2E /* Entries.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991226509B6500FDDD2E /* Entries.swift */; };
 		FAFE991626509C2D00FDDD2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991526509C2D00FDDD2E /* PlayerView.swift */; };
-		FAFE991726509C2D00FDDD2E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991526509C2D00FDDD2E /* PlayerView.swift */; };
 		FAFE991E26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991D26509F9400FDDD2E /* AssociatedAssetsView.swift */; };
-		FAFE991F26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE991D26509F9400FDDD2E /* AssociatedAssetsView.swift */; };
 		FAFE99212650A02900FDDD2E /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE99202650A02900FDDD2E /* AssetView.swift */; };
-		FAFE99222650A02900FDDD2E /* AssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFE99202650A02900FDDD2E /* AssetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,9 +40,7 @@
 		FAFE98ED2650907100FDDD2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAFE98F22650907100FDDD2E /* Forest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFE98F52650907100FDDD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAFE98FA2650907100FDDD2E /* Forest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Forest.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAFE98FC2650907100FDDD2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAFE98FD2650907100FDDD2E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		FAFE98FD2650907100FDDD2E /* Forest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Forest.entitlements; sourceTree = "<group>"; };
 		FAFE990C265098FD00FDDD2E /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		FAFE990F2650997500FDDD2E /* Tar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tar.swift; sourceTree = "<group>"; };
 		FAFE991226509B6500FDDD2E /* Entries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entries.swift; sourceTree = "<group>"; };
@@ -76,27 +57,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAFE98F72650907100FDDD2E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		FAFE98E52650906F00FDDD2E = {
 			isa = PBXGroup;
 			children = (
-				FAFE98EA2650906F00FDDD2E /* Shared */,
-				FAFE98F42650907100FDDD2E /* iOS */,
-				FAFE98FB2650907100FDDD2E /* macOS */,
+				FAFE98EA2650906F00FDDD2E /* Forest */,
 				FAFE98F32650907100FDDD2E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FAFE98EA2650906F00FDDD2E /* Shared */ = {
+		FAFE98EA2650906F00FDDD2E /* Forest */ = {
 			isa = PBXGroup;
 			children = (
 				FAFE991826509D9B00FDDD2E /* App */,
@@ -108,34 +80,18 @@
 				FAB57F4926ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift */,
 				FAFE990F2650997500FDDD2E /* Tar.swift */,
 				FAFE98ED2650907100FDDD2E /* Assets.xcassets */,
+				FAFE98F52650907100FDDD2E /* Info.plist */,
+				FAFE98FD2650907100FDDD2E /* Forest.entitlements */,
 			);
-			path = Shared;
+			path = Forest;
 			sourceTree = "<group>";
 		};
 		FAFE98F32650907100FDDD2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				FAFE98F22650907100FDDD2E /* Forest.app */,
-				FAFE98FA2650907100FDDD2E /* Forest.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		FAFE98F42650907100FDDD2E /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				FAFE98F52650907100FDDD2E /* Info.plist */,
-			);
-			path = iOS;
-			sourceTree = "<group>";
-		};
-		FAFE98FB2650907100FDDD2E /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				FAFE98FC2650907100FDDD2E /* Info.plist */,
-				FAFE98FD2650907100FDDD2E /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		FAFE991826509D9B00FDDD2E /* App */ = {
@@ -165,9 +121,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAFE98F12650907100FDDD2E /* Forest (iOS) */ = {
+		FAFE98F12650907100FDDD2E /* Forest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAFE99062650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest (iOS)" */;
+			buildConfigurationList = FAFE99062650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest" */;
 			buildPhases = (
 				FAFE98EE2650907100FDDD2E /* Sources */,
 				FAFE98EF2650907100FDDD2E /* Frameworks */,
@@ -177,26 +133,9 @@
 			);
 			dependencies = (
 			);
-			name = "Forest (iOS)";
+			name = Forest;
 			productName = "Forest (iOS)";
 			productReference = FAFE98F22650907100FDDD2E /* Forest.app */;
-			productType = "com.apple.product-type.application";
-		};
-		FAFE98F92650907100FDDD2E /* Forest (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAFE99092650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest (macOS)" */;
-			buildPhases = (
-				FAFE98F62650907100FDDD2E /* Sources */,
-				FAFE98F72650907100FDDD2E /* Frameworks */,
-				FAFE98F82650907100FDDD2E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Forest (macOS)";
-			productName = "Forest (macOS)";
-			productReference = FAFE98FA2650907100FDDD2E /* Forest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,9 +149,6 @@
 				ORGANIZATIONNAME = Leptos;
 				TargetAttributes = {
 					FAFE98F12650907100FDDD2E = {
-						CreatedOnToolsVersion = 12.5;
-					};
-					FAFE98F92650907100FDDD2E = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -230,8 +166,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAFE98F12650907100FDDD2E /* Forest (iOS) */,
-				FAFE98F92650907100FDDD2E /* Forest (macOS) */,
+				FAFE98F12650907100FDDD2E /* Forest */,
 			);
 		};
 /* End PBXProject section */
@@ -242,14 +177,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFE99022650907100FDDD2E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAFE98F82650907100FDDD2E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAFE99032650907100FDDD2E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,29 +203,6 @@
 				FAB57F4D26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */,
 				FAFE99102650997500FDDD2E /* Tar.swift in Sources */,
 				FAB57F4A26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAFE98F62650907100FDDD2E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAFE99012650907100FDDD2E /* ContentView.swift in Sources */,
-				FAFE990E265098FD00FDDD2E /* Resources.swift in Sources */,
-				FAFE99222650A02900FDDD2E /* AssetView.swift in Sources */,
-				FAFE991426509B6500FDDD2E /* Entries.swift in Sources */,
-				FAB57F4826EC500800DEAD76 /* Asset+VideoVariant.swift in Sources */,
-				FAB57F4226EBA06A00DEAD76 /* ShuffleSection.swift in Sources */,
-				FAB57F4526EBACF700DEAD76 /* ShuffleNavigationLink.swift in Sources */,
-				FAFE991F26509F9400FDDD2E /* AssociatedAssetsView.swift in Sources */,
-				FAB57F3926EA708200DEAD76 /* Collection+Identifiable.swift in Sources */,
-				FAFE991726509C2D00FDDD2E /* PlayerView.swift in Sources */,
-				FA5B6AEB2662D3CA006461A0 /* AssetNavigationLink.swift in Sources */,
-				FAB57F3C26EA806700DEAD76 /* PointsOfInterestTable.swift in Sources */,
-				FAFE98FF2650907100FDDD2E /* ForestApp.swift in Sources */,
-				FAB57F4E26ED069D00DEAD76 /* SidebarSectionHeader.swift in Sources */,
-				FAFE99112650997500FDDD2E /* Tar.swift in Sources */,
-				FAB57F4B26ECE9CA00DEAD76 /* Asset+LocalizedPointOfInterest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,18 +329,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Forest/Forest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P56K8K4MY;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Forest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = null.leptos.Forest;
 				PRODUCT_NAME = Forest;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,69 +358,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Forest/Forest.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P56K8K4MY;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Forest/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = null.leptos.Forest;
 				PRODUCT_NAME = Forest;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FAFE990A2650907100FDDD2E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 7P56K8K4MY;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = null.leptos.Forest;
-				PRODUCT_NAME = Forest;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		FAFE990B2650907100FDDD2E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 7P56K8K4MY;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = null.leptos.Forest;
-				PRODUCT_NAME = Forest;
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -525,20 +395,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAFE99062650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest (iOS)" */ = {
+		FAFE99062650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FAFE99072650907100FDDD2E /* Debug */,
 				FAFE99082650907100FDDD2E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FAFE99092650907100FDDD2E /* Build configuration list for PBXNativeTarget "Forest (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAFE990A2650907100FDDD2E /* Debug */,
-				FAFE990B2650907100FDDD2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
