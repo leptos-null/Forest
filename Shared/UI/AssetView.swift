@@ -55,9 +55,12 @@ struct AssetView: View {
                 .labelsHidden() // on macOS, hides the picker title
                 .pickerStyle(.segmented)
                 
+#if os(macOS)
                 Link(destination: asset.url(for: videoVariant)) {
-                    Text(Image(systemName: "safari"))
+                    Label("Open in Safari", systemImage: "safari")
+                        .labelStyle(.iconOnly)
                 }
+#endif
             }
             .padding(.horizontal, 16)
             
@@ -66,5 +69,18 @@ struct AssetView: View {
                 .animation(.easeInOut(duration: 0.45), value: pointOfInterestIndex)
         }
         .navigationTitle(asset.accessibilityLabel)
+        .toolbar {
+#if !os(macOS)
+            ToolbarItem(placement: .navigationBarTrailing) {
+                if #available(iOS 16.0, macOS 13.0, *) {
+                    ShareLink(item: asset.url(for: videoVariant), subject: Text(asset.accessibilityLabel))
+                } else {
+                    Link(destination: asset.url(for: videoVariant)) {
+                        Label("Open in Safari", systemImage: "safari")
+                    }
+                }
+            }
+#endif
+        }
     }
 }
