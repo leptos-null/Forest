@@ -1,6 +1,6 @@
 ### Forest
 
-Forest is an iOS and macOS SwiftUI app to view the videos used as screensavers on tvOS 15
+Forest is an iOS, macOS, and visionOS SwiftUI app to view the videos used as screensavers on tvOS 15
 
 ### Screenshots
 
