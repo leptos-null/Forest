@@ -79,7 +79,7 @@ struct PlayerView {
                 fatalError("player.currentItem must be valid at this point")
             }
             addEndTimeObserver(to: playerItem)
-#if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS) || os(visionOS)
             // per https://developer.apple.com/wwdc22/10147
             var externalMetadata: [AVMetadataItem] = []
             if let title = metadata.title {
